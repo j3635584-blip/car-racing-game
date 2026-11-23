@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    background-color: #090b10;
+    color: #f1f5f9;
+    touch-action: none;
+    user-select: none;
+  }
+}
+
+.font-display {
+  font-family: "Chakra Petch", system-ui, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes countdown-3d-slam {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) translate3d(0, -28px, 260px) rotateX(34deg) rotateY(-14deg) scale(1.45);
+  }
+  26% {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, 2px, -14px) rotateX(-5deg) rotateY(4deg) scale(0.96);
+  }
+  44% {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, 0, 0) rotateX(6deg) rotateY(0deg) scale(1);
+  }
+  84% {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, 0, 12px) rotateX(4deg) rotateY(0deg) scale(1.03);
+  }
+  100% {
+    opacity: 0.15;
+    transform: perspective(900px) translate3d(0, 12px, -110px) rotateX(-16deg) scale(0.84);
+  }
+}
+
+@keyframes countdown-go-burst {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) translate3d(0, 14px, -120px) rotateX(22deg) scale(0.65);
+  }
+  24% {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, 0, 36px) rotateX(0deg) scale(1.08);
+  }
+  65% {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, -4px, 72px) rotateX(-4deg) scale(1.14);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(900px) translate3d(0, -22px, 240px) rotateX(-14deg) scale(1.52);
+  }
+}
+
+@keyframes countdown-ring-spin {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) rotateX(66deg) rotateZ(-45deg) scale(0.75);
+  }
+  22% {
+    opacity: 0.95;
+    transform: perspective(900px) rotateX(66deg) rotateZ(0deg) scale(1);
+  }
+  100% {
+    opacity: 0.25;
+    transform: perspective(900px) rotateX(66deg) rotateZ(120deg) scale(1.12);
+  }
+}
+
+.animate-countdown-3d {
+  animation: countdown-3d-slam 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.animate-countdown-go {
+  animation: countdown-go-burst 0.74s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.animate-countdown-ring {
+  animation: countdown-ring-spin 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
